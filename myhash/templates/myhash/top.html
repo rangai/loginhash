@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="welcome">
+    <h2>Myhash</h2>
+    <a class="btn btn-primary" href="{% url 'hash_new' %}">Create</a>
+</div>
+
+{% if myhash %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>message</th>
+        <th>hash</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for h in myhash %}
+    <tr>
+        <th>{{ h.msg }}</th>
+        <th>{{ h.hsh }}</th>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>no data</p>
+{% endif %}
+{% endblock %}
